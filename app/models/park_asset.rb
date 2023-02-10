@@ -1,0 +1,2 @@
+class ParkAsset < ApplicationRecord
+end
