@@ -5,16 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-
 require 'csv'
 
-filename = Rails.root.join('db/spraypad.csv')
+filename = Rails.root.join('db/spray_pads.csv')
 
 csv_spraypad = File.read(filename)
 spray_pads = CSV.parse(csv_spraypad, headers: true, encoding: "utf-8")
 
 spray_pads.each do |sp|
- SprayPad.create(park_name: sp["park_name"], address: sp["address"], complex_id: sp["complex_id"])
+
+  spray_pad = SprayPad.create(complex_id: sp["complex_id"],park_name: sp["park_name"],
+  address: sp["address"],
+  is_open: sp["is_open"])
   puts sp
 end
