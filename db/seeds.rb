@@ -56,3 +56,33 @@ park_a.each do |assets_inventory|
   asset_type: assets_inventory["asset_type"], asset_size: assets_inventory["asset_size"],
   primary_field: assets_inventory["primary_field"])
 end
+
+
+
+pool_info = Rails.root.join('db/pools.csv')
+
+outdoor_pool = File.read(pool_info)
+pool_outdoor = CSV.parse(outdoor_pool, headers: true, encoding: "utf-8")
+
+pool_outdoor.each do |pool|
+
+  pools_outdoor = Pool.create(
+    park_name: pool["park_name"],
+    address: pool["address"],
+   is_open: pool["is_open"],
+    entry_height: pool["entry_height"],
+    pool_entry: pool["pool_entry"],
+    avg_temp: pool["avg_temp"],
+    group_bookings: pool["group_bookings"],
+    lockers: pool["lockers"],
+    slide: pool["slide"],
+    diving_board: pool["diving_board"],
+    lap_swim: pool["lap_swim"],
+    lessons: pool["lessons"],
+    spray: pool["spray"],
+    showers: pool["showers"],
+   parking_lot: pool["parking_lot"],
+   booking_info: pool["booking_info"],
+    locker_info: pool["locker_info"],
+   complex_id: pool["complex_id"])
+end

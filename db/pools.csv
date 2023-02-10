@@ -1,0 +1,11 @@
+﻿park_name,address,is_open,entry_height,pool_entry,avg_temp,group_bookings,lockers,slide,diving_board,lap_swim,lessons,spray,showers,parking_lot,booking_info,locker_info,complex_id
+Freight House Pool,200 Isabel St,TRUE,44in/112cm at top of shoulder,Above ground Pool - Stair entry,Pool Water not heated,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,,,163
+Kildonan Park Pool,2015 Main St,TRUE,44in/112cm at top of shoulder,Beach & Ladder entry,27°C / 81°F,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,bookings required for 9 or more people,25¢ coin operated - (refundable),67
+Norwood Pool,10 CROMWELL ST,TRUE,48in/122cm at top of shoulder,Ladder entry,Pool Water not heated,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,,,139
+Transcona Aquatic Park,1101 Wabasha St,TRUE,54in/137cm at top of shoulder,Ladder entry,27°C / 81°F,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,bookings required for 9 or more people,25¢ coin operated - (refundable),111
+Windsor Park Pool,333 Speers Rd,TRUE,48in/122cm at top of shoulder,Stair entry,Pool Water not heated,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,,,134
+Fort Garry Lion's Pool,969 Dowker Ave,TRUE,48in/122cm at top of shoulder,Ladder entry,27°C / 81°F,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,bookings required for 9 or more people,,181
+St. Vital Pool,5 Rue Des Meurons,TRUE,48in/122cm at top of shoulder,Ladder entry,27°C / 81°F,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,bookings required for 9 or more people,,141
+Happyland Pool,520 Marion St,TRUE,48in/122cm at top of shoulder,Ladder entry,Pool Water not heated,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,,,132
+Westdale Pool,550 Dale Blvd,TRUE,52in/132cm at top of shoulder,Stair & Ladder entry,27°C / 81°F,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,bookings required for 9 or more people,,148
+Provencher Pool,590 Rue Langevin,TRUE,48in/122cm at top of shoulder,Ladder entry,Pool Water not heated,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,,,36
