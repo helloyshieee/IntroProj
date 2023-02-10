@@ -1,0 +1,2 @@
+class SprayPad < ApplicationRecord
+end
