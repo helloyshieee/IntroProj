@@ -3,6 +3,7 @@ class ParkSpacesController < ApplicationController
     @park_spaces = ParkSpace.all
     @park_spaces = ParkSpace.includes(:park_assets)
 
+    @park_spaces = ParkSpace.includes(:pools)
 
     #Simple Search
     @park_spaces = @park_spaces.where("park_name LIKE ?", "%#{params[:q]}%") if params[:q].present?
