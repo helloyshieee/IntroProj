@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   resources :park_spaces, only: [:index, :show]
   resources :park_assets, only: [:index, :show]
+
+
   end

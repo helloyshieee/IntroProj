@@ -1,4 +1,23 @@
-<h1>ParkSpaces#show</h1>
-<p>Find me in app/views/park_spaces/show.html.erb</p>
-<%= @park_space.park_name%>
-<%= @park_space.location_description%>
+<h1><%= @park_space.park_name %></h1>
+
+
+<p>Neighborhood: <%= @park_space.neighbourhood %></p>
+<p>Ward: <%= @park_space.electoral_ward %></p>
+<p>Location Description: <%= @park_space.location_description %></p>
+
+<h2>Park Assets:</h2>
+<ul>
+  <% if @park_assets.any? %>
+    <% @park_assets.group(:asset_type).count.each do |asset_type, count| %>
+    <li><%= "#{asset_type}: #{count}" %></li>
+    <%end%>
+  <% else %>
+    <p>No park assets found for this park space.</p>
+  <% end %>
+</ul>
+
+<h2> Pool Information </h2>
+<!-- add the pool attribute here -->
+<% if @pool.present? %>
+  <p><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
+<% end %>

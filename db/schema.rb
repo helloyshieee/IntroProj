@@ -56,14 +56,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_164634) do
     t.string "booking_info"
     t.string "locker_info"
     t.integer "complex_id"
+    t.integer "park_id"
   end
 
+  create_table "spray_p_ads", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  create_table "spray_pads", id: false, force: :cascade do |t|
+  create_table "spray_pads", force: :cascade do |t|
     t.string "park_name"
     t.string "address"
     t.string "is_open"
     t.integer "complex_id"
+    t.integer "park_id"
   end
 
 end

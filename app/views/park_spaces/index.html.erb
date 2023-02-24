@@ -1,7 +1,18 @@
-<h1>ParkSpaces#index</h1>
-<p>Find me in app/views/park_spaces/index.html.erb</p>
-<ol>
-<% @park_spaces.each do |parks| %>
-<li><%= link_to parks.park_name %></li>
+<h1>Park Spaces</h1>
+
+<%= form_tag park_spaces_path, method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :q, params[:q], placeholder: "Search by park name", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= select_tag :neighbourhood, options_for_select(ParkSpace.pluck(:neighbourhood).uniq, params[:neighbourhood]), prompt: "Select a neighborhood", class: "form-control" %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-</ol>
+<ul>
+  <% @park_spaces.each do |park_space| %>
+    <li>
+      <%= link_to park_space.park_name, park_space_path(park_space) %>
+    </li>
+  <% end %>
+</ul>
