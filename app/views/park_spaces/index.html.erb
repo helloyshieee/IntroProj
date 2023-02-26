@@ -9,6 +9,7 @@
   </div>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
 <ul>
   <% @park_spaces.each do |park_space| %>
     <li>
@@ -16,3 +17,8 @@
     </li>
   <% end %>
 </ul>
+
+
+<div class="pagination">
+  <%= paginate @park_spaces %>
+</div>

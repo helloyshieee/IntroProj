@@ -9,6 +9,8 @@ class ParkSpacesController < ApplicationController
     @park_spaces = @park_spaces.where("park_name LIKE ?", "%#{params[:q]}%") if params[:q].present?
 
     @park_spaces = @park_spaces.where(neighbourhood: params[:neighbourhood]) if params[:neighbourhood].present?
+
+    @park_spaces = @park_spaces.page(params[:page]).per(25)
   end
 
 
