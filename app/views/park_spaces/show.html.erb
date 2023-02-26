@@ -5,6 +5,13 @@
 <p>Ward: <%= @park_space.electoral_ward %></p>
 <p>Location Description: <%= @park_space.location_description %></p>
 
+<% if @spray.present? %>
+  <p>Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
+<% else %>
+  <p>No spray pad information available for this park.</p>
+<% end %>
+
+
 <h2>Park Assets:</h2>
 <ul>
   <% if @park_assets.any? %>

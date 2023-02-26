@@ -18,5 +18,7 @@ class ParkSpacesController < ApplicationController
       @park_space = ParkSpace.find(params[:id])
       @park_assets = @park_space.park_assets
       @pool = @park_space.pools
+      @spray = @park_space.spray_pads
+
     end
 end
