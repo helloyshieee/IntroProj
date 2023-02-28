@@ -4,28 +4,62 @@
 <br>
   <div>
     <h2 class="text-2xl font-bold mb-4">Park and Open Space</h2>
+      <div class="ml-4">
       <p>This dataset has information about all the parks and open spaces around Winnipeg.
       This includes the park name, address, district neighbourhood, electoral ward,
       and the measurement of the park’s area.</p>
-        <ul class="list-disc list-inside m-2">Table: park_names
-	       <li>park_id, park_name</li>
-	        <li>address, location_description</li>
-	        <li>linear_park_system, district</li>
-	        <li>neighbourhood, electoral_ward</li>
-	        <li>cca, area_in_hectares</li>
-	        <li>water_in_hectares, land_aread_in_hectares</li>
+        <ul class="list-disc list-inside m-2">
+        <strong>Table: park_names</strong>
+	       <li>park_id, park_name
+	           address, location_description,
+	           linear_park_system, district,
+          <br>
+	           neighbourhood, electoral_ward,
+	           cca, area_in_hectares,
+	           water_in_hectares, land_area_in_hectares</li>
         </ul>
-      <br>
-       <h2 class="text-2xl font-bold mb-4">Park Assets</h2>
+      </div>
+
+    <br>
+
+    <h2 class="text-2xl font-bold mb-4">Park Assets</h2>
+      <div class="ml-4">
       <p>This dataset has the asset inventory for the parks such as benches and play structures.</p>
-        <ul class="list-disc list-inside m-2">Table: park_assets
-	       <li>park_id, park_name</li>
-	        <li>address, location_description</li>
-	        <li>linear_park_system, district</li>
-	        <li>neighbourhood, electoral_ward</li>
-	        <li>cca, area_in_hectares</li>
-	        <li>water_in_hectares, land_aread_in_hectares</li>
+        <ul class="list-disc list-inside m-2">
+        <strong>Table: park_assets</strong>
+	       <li>asset_id, asset_class, asset_type,
+             park_id, park_name, primary_field</li>
         </ul>
+      </div>
+
+    <br>
+
+    <h2 class="text-2xl font-bold mb-4">Pools</h2>
+      <div class="ml-4">
+      <p>This dataset has the information of the outdoor swimming pools in Winnipeg and its amenities.</p>
+        <ul class="list-disc list-inside m-2">
+        <strong>Table: pools</strong>
+	       <li>id, park_id, park_name, address, is_open,
+             avg_temp, group_bookings, lockers, slide,
+             diving_board, lap_swim,
+             <br>
+             lessons, spray,
+             showers, parking_lot, booking_info, locker_info, complex_id
+          </li>
+        </ul>
+      </div>
+    <br>
+
+    <h2 class="text-2xl font-bold mb-4">Spray Pad</h2>
+      <div class="ml-4">
+      <p>This dataset has the park names where spray pads are available and if it is open.</p>
+        <ul class="list-disc list-inside m-2">
+        <strong>Table: spray_pads</strong>
+	       <li>id, park_id, park_name, address, is_open,
+             complex_id
+          </li>
+        </ul>
+      </div>
   </div>
 
 

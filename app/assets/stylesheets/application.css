@@ -13,5 +13,17 @@
  *= require_tree .
  *= require_self
  */
- .list-inside { list-style-position: inside; }
- .list-disc { list-style-type: disc; }
+ .list-inside {
+    list-style-position: inside;
+    margin-left: 2rem;
+  }
+
+
+ .list-disc {
+    list-style-type: disc;
+    margin-left: 2rem;
+  }
+
+ .ml-4 {
+  margin-left: 2rem; /* You can adjust the indentation by changing the value */
+}
