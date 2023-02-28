@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 #added paginate
 gem 'kaminari'
 
+#CSS
+gem 'tailwindcss-rails'
+
 
 
 # Use Sass to process CSS

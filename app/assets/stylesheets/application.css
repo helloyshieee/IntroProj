@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+ .list-inside { list-style-position: inside; }
+ .list-disc { list-style-type: disc; }
