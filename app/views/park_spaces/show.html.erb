@@ -26,5 +26,7 @@
 <h2> Pool Information </h2>
 <!-- add the pool attribute here -->
 <% if @pool.present? %>
+  <p><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
   <p><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
+
 <% end %>
