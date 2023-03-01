@@ -27,3 +27,16 @@
  .ml-4 {
   margin-left: 2rem; /* You can adjust the indentation by changing the value */
 }
+
+.banner {
+  background-color: navy;
+  color: white;
+  padding: 40px;
+  padding-bottom: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 10;
+  width: 100%;
+  z-index: 9999;
+}

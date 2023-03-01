@@ -1,32 +1,55 @@
-<h1><%= @park_space.park_name %></h1>
+<div class="banner">
+  <h1 class="text-white text-3xl font-bold">Park Spaces in Winnipeg</h1>
+</div>
 
+<div class="max-w-2xl mx-auto py-10 px-10">
+  <h1 class="text-2xl font-bold mb-4"><%= @park_space.park_name %></h1>
 
-<p>Neighborhood: <%= @park_space.neighbourhood %></p>
-<p>Ward: <%= @park_space.electoral_ward %></p>
-<p>Location Description: <%= @park_space.location_description %></p>
+  <div class="border-b-2 border-gray-200 pb-4 mb-4">
+    <p class="text-gray-600"><%= @park_space.neighbourhood %></p>
+    <p class="text-gray-600"><%= @park_space.electoral_ward %></p>
+    <p class="text-gray-600"><%= @park_space.location_description %> Winnipeg</p>
+  </div>
 
-<% if @spray.present? %>
-  <p>Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
-<% else %>
-  <p>No spray pad information available for this park.</p>
-<% end %>
-
-
-<h2>Park Assets:</h2>
-<ul>
-  <% if @park_assets.any? %>
-    <% @park_assets.group(:asset_type).count.each do |asset_type, count| %>
-    <li><%= "#{asset_type}: #{count}" %></li>
-    <%end%>
+<div class="border-b-2 border-gray-200 py-4 mb-4">
+  <h2 class="text-lg font-bold mb-2">Spray Pad Feature</h2>
+  <% if @spray.present? %>
+    <p class="text-gray-600">Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
   <% else %>
-    <p>No park assets found for this park space.</p>
+    <p class="text-gray-600">No spray pad information available for this park.</p>
   <% end %>
-</ul>
+</div>
 
-<h2> Pool Information </h2>
-<!-- add the pool attribute here -->
-<% if @pool.present? %>
-  <p><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
-  <p><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
+  <div class="border-b-2 border-gray-200 py-4 mb-4">
+    <h2 class="text-lg font-bold mb-2">Park Assets:</h2>
+    <% if @park_assets.any? %>
+      <% @park_assets.group(:asset_type).count.each do |asset_type, count| %>
+      <p class="text-gray-600"><%= "#{asset_type}: #{count}" %></p>
+      <%end%>
+    <% else %>
+      <p class="text-gray-600">No park assets found for this park space.</p>
+    <% end %>
+  </div>
 
-<% end %>
+  <% if @pool.present? %>
+    <div class="border-b-2 border-gray-200 py-4">
+      <h2 class="text-lg font-bold mb-2">Pool Information</h2>
+      <p class="text-gray-600"><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
+      <p class="text-gray-600"><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
+      <p class="text-gray-600"><strong>Average Water Temperature:</strong> <%= @pool.avg_temp %></p>
+      <p class="text-gray-600"><strong>Group Booking:</strong>
+        <% if @pool.group_bookings == "TRUE" %>
+          <p><strong>Booking Information:</strong> <%= @pool.booking_info %></p>
+             <% else %>
+                <p>Booking ahead is not necessary.</p>
+       <% end %>
+       <p class="text-gray-600"><strong>Locker Information:</strong>
+        <% if @pool.locker_info == "TRUE" %>
+          <p><%= @pool.locker_info%></p>
+             <% else %>
+                <p>This pool location do not have locker available.</p>
+       <% end %>
+    </div>
+  <% end %>
+
+</div>
