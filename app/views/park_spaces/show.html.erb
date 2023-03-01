@@ -12,13 +12,45 @@
   </div>
 
 <div class="border-b-2 border-gray-200 py-4 mb-4">
-  <h2 class="text-lg font-bold mb-2">Spray Pad Feature</h2>
-  <% if @spray.present? %>
-    <p class="text-gray-600">Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
-  <% else %>
-    <p class="text-gray-600">No spray pad information available for this park.</p>
-  <% end %>
+  <div class="flex items-start">
+    <div class="mr-20">
+      <h2 class="text-lg font-bold mb-2">Spray Pad Feature</h2>
+      <% if @spray.present? %>
+        <p class="text-gray-600">Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
+      <% else %>
+        <p class="text-gray-600">No spray pad information available for this park.</p>
+      <% end %>
+    </div>
+
+    <% if @pool.present? %>
+      <div class="mr-5">
+        <h2 class="text-lg font-bold mb-2">Pool Information</h2>
+        <p class="text-gray-600"><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
+        <p class="text-gray-600"><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
+        <p class="text-gray-600"><strong>Average Water Temperature:</strong> <%= @pool.avg_temp %></p>
+        <p class="text-gray-600"><strong>Group Booking:</strong>
+          <% if @pool.group_bookings == "TRUE" %>
+            <p><%= @pool.booking_info %></p>
+          <% else %>
+            <p>Booking ahead is not necessary.</p>
+          <% end %>
+          <p class="text-gray-600"><strong>Locker Information:</strong>
+          <% if @pool.locker_info == "TRUE" %>
+            <p><%= @pool.locker_info%></p>
+          <% else %>
+            <p>This pool location do not have locker available.</p>
+          <% end %>
+          <p class="text-gray-600"><strong>Slide:</strong>
+          <% if @pool.slide == "TRUE"%>
+            <p>This pool location has a slide.</p>
+          <% else %>
+            <p>This pool location do not have slide.</p>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
 </div>
+
 
   <div class="border-b-2 border-gray-200 py-4 mb-4">
     <h2 class="text-lg font-bold mb-2">Park Assets:</h2>
@@ -31,25 +63,20 @@
     <% end %>
   </div>
 
-  <% if @pool.present? %>
-    <div class="border-b-2 border-gray-200 py-4">
-      <h2 class="text-lg font-bold mb-2">Pool Information</h2>
-      <p class="text-gray-600"><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
-      <p class="text-gray-600"><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
-      <p class="text-gray-600"><strong>Average Water Temperature:</strong> <%= @pool.avg_temp %></p>
-      <p class="text-gray-600"><strong>Group Booking:</strong>
-        <% if @pool.group_bookings == "TRUE" %>
-          <p><strong>Booking Information:</strong> <%= @pool.booking_info %></p>
-             <% else %>
-                <p>Booking ahead is not necessary.</p>
-       <% end %>
-       <p class="text-gray-600"><strong>Locker Information:</strong>
-        <% if @pool.locker_info == "TRUE" %>
-          <p><%= @pool.locker_info%></p>
-             <% else %>
-                <p>This pool location do not have locker available.</p>
-       <% end %>
-    </div>
-  <% end %>
 
+</div>
+
+
+<div class="max-w-2xl mx-auto py-10 px-10 flex justify-between">
+  <div class="w-2/3">
+    <!-- existing code for park space details -->
+  </div>
+  <div class="w-1/3">
+    <h2 class="text-lg font-bold mb-2">Random Park Spaces:</h2>
+    <ul>
+      <% ParkSpace.order(Arel.sql('RANDOM()')).limit(15).each do |park_space| %>
+        <li><%= link_to park_space.park_name, park_space_path(park_space) %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
