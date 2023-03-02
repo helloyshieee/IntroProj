@@ -1,8 +1,16 @@
-<div class="banner">
+<div class="container flex flex-col min-h-screen">
+  <div class="flex-grow">
+    <div class="banner">
   <h1 class="text-white text-3xl font-bold">Park Spaces in Winnipeg</h1>
+  <br>
+  <div class="flex justify-between items-center mb-2"  style="position: absolute; right: 1rem; top: 3.5rem;  ">
+    <%= link_to "About", about_path, class: "text-white font-bold mr-4" %>
+    <%= link_to "Park Spaces", park_spaces_path, class: "text-white font-bold" %>
+  </div>
+
 </div>
 
-<div class="max-w-2xl mx-auto py-10 px-10">
+<div class="max-w-2xl  py-10 px-10">
   <h1 class="text-2xl font-bold mb-4"><%= @park_space.park_name %></h1>
 
   <div class="border-b-2 border-gray-200 pb-4 mb-4">
@@ -11,26 +19,41 @@
     <p class="text-gray-600"><%= @park_space.location_description %> Winnipeg</p>
   </div>
 
+<!-- Spray Pad -->
 <div class="border-b-2 border-gray-200 py-4 mb-4">
-  <div class="flex items-start">
-    <div class="mr-20">
-      <h2 class="text-lg font-bold mb-2">Spray Pad Feature</h2>
+    <h2 class="text-lg font-bold mb-2">Spray Pad Feature</h2>
       <% if @spray.present? %>
         <p class="text-gray-600">Spray Pad Status: <%= @spray.is_open ? 'Open' : 'Closed or Not Available' %></p>
-      <% else %>
+          <% else %>
         <p class="text-gray-600">No spray pad information available for this park.</p>
       <% end %>
-    </div>
+</div>
 
-    <% if @pool.present? %>
-      <div class="mr-5">
-        <h2 class="text-lg font-bold mb-2">Pool Information</h2>
+<!-- Park Assets -->
+<div class="border-b-2 border-gray-200 py-4 mb-4">
+  <h2 class="text-lg font-bold mb-2">Park Assets:</h2>
+  <% if @park_assets.any? %>
+    <% @park_assets.group(:asset_type).count.sort_by { |asset_type, count| asset_type.downcase }.each do |asset_type, count| %>
+      <% if asset_type == "N/A" %>
+        <% asset_type = "Others" %>
+      <% end %>
+      <p class="text-gray-600"><%= "#{asset_type.capitalize}: #{count}" %></p>
+    <% end %>
+  <% else %>
+    <p class="text-gray-600">No park assets found for this park space.</p>
+  <% end %>
+</div>
+
+<!-- Pools -->
+<% if @pool.present? %>
+  <div class="mr-5">
+      <h2 class="text-lg font-bold mb-2">Pool Information</h2>
         <p class="text-gray-600"><strong>Pool Entry:</strong> <%= @pool.pool_entry %></p>
         <p class="text-gray-600"><strong>Pool Entry Height:</strong> <%= @pool.entry_height %></p>
         <p class="text-gray-600"><strong>Average Water Temperature:</strong> <%= @pool.avg_temp %></p>
         <p class="text-gray-600"><strong>Group Booking:</strong>
           <% if @pool.group_bookings == "TRUE" %>
-            <p><%= @pool.booking_info %></p>
+            <p><%= @pool.booking_info.capitalize%></p>
           <% else %>
             <p>Booking ahead is not necessary.</p>
           <% end %>
@@ -48,35 +71,25 @@
           <% end %>
         </div>
     <% end %>
+    <br>
+    <%= link_to 'View All Park Spaces', park_spaces_path, class: "text-blue-500 underline" %>
   </div>
 </div>
-
-
-  <div class="border-b-2 border-gray-200 py-4 mb-4">
-    <h2 class="text-lg font-bold mb-2">Park Assets:</h2>
-    <% if @park_assets.any? %>
-      <% @park_assets.group(:asset_type).count.each do |asset_type, count| %>
-      <p class="text-gray-600"><%= "#{asset_type}: #{count}" %></p>
-      <%end%>
-    <% else %>
-      <p class="text-gray-600">No park assets found for this park space.</p>
-    <% end %>
-  </div>
-
-
 </div>
 
-
-<div class="max-w-2xl mx-auto py-10 px-10 flex justify-between">
-  <div class="w-2/3">
+<!-- Park Names  -->
+<div class="max-w-2xl mx-auto flex justify-between mt-8">
+  <div class="w-1 mr-40 ml-30">
     <!-- existing code for park space details -->
   </div>
-  <div class="w-1/3">
-    <h2 class="text-lg font-bold mb-2">Random Park Spaces:</h2>
-    <ul>
-      <% ParkSpace.order(Arel.sql('RANDOM()')).limit(15).each do |park_space| %>
-        <li><%= link_to park_space.park_name, park_space_path(park_space) %></li>
+
+  <div class="w-60 ml-50">
+    <h2 class="text-lg font-bold mb-2">Other Park Spaces:</h2>
+      <ul>
+        <% ParkSpace.order(Arel.sql('RANDOM()')).limit(6).each do |park_space| %>
+          <li><%= link_to park_space.park_name, park_space_path(park_space) %></li>
       <% end %>
-    </ul>
+      </ul>
+    <br>
   </div>
-</div>
+

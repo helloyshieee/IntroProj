@@ -1,6 +1,12 @@
-<div class="banner">
+<div class="banner flex justify-between items-center">
   <h1 class="text-white text-3xl font-bold">Park Spaces in Winnipeg</h1>
+
+  <div class="menu">
+    <%= link_to "About", about_path, class: "text-white font-bold mr-4" %>
+    <%= link_to "Park Spaces", park_spaces_path, class: "text-white font-bold" %>
+  </div>
 </div>
+
 
 <div>
 <div class="flex justify-between items-center mb-4" style="position: absolute; top: 4; right: 1.5rem;">
@@ -15,20 +21,19 @@
 
 
 <div>
-<h1 class="text-2xl font-bold mb-4"> Do you know that there are more than 1,000 park spaces in Winnipeg?</h1>
-<ul class="mt-8" style="width: 100%">
-  <% @park_spaces.each do |park_space| %>
-     <li>
-       <%= link_to park_space.park_name, park_space_path(park_space) %>
-     </li>
-   <% end %>
-
-  <br>
-
+  <h1 class="text-2xl font-bold mb-4"> Do you know that there are a thousand of park spaces in Winnipeg?</h1>
+    <ul class="mt-8" style="width: 100%">
+        <% @park_spaces.each do |park_space| %>
+           <li>
+               <%= link_to park_space.park_name, park_space_path(park_space) %>
+           </li>
+        <% end %>
+   <br>
    <div class="pagination">
       <%= paginate @park_spaces %>
    </div>
-</ul>
+   </ul>
+<br>
 </div>
 
 

@@ -1,3 +1,13 @@
+<div class="banner flex justify-between items-center">
+  <h1 class="text-white text-3xl font-bold">Park Spaces in Winnipeg</h1>
+
+  <div class="menu">
+    <%= link_to "About", about_path, class: "text-white font-bold mr-4" %>
+    <%= link_to "Park Spaces", park_spaces_path, class: "text-white font-bold" %>
+  </div>
+</div>
+
+
 <div>
 <h1 class="text-3xl font-bold mb-2">About Us</h1>
 <p style="display: block; clear: both;">The information below are from the open data source of Winnipeg</p>
@@ -59,11 +69,7 @@
              complex_id
           </li>
         </ul>
+        <br>
       </div>
   </div>
-
-
-
-<br>
-  <%= link_to 'View Park Spaces', park_spaces_path %>
 </div>
