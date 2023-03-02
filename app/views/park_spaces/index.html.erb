@@ -24,8 +24,11 @@
   <h1 class="text-2xl font-bold mb-4"> Do you know that there are a thousand of park spaces in Winnipeg?</h1>
     <ul class="mt-8" style="width: 100%">
         <% @park_spaces.each do |park_space| %>
-           <li>
+           <li class="flex justify-between items-center">
                <%= link_to park_space.park_name, park_space_path(park_space) %>
+               <% if park_space.pools.present? %>
+                <span class="text-green-500 font-bold text-center">Pool is available</span>
+               <% end %>
            </li>
         <% end %>
    <br>
