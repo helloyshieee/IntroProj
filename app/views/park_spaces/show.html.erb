@@ -70,9 +70,10 @@
             <p>This pool location do not have slide.</p>
           <% end %>
         </div>
+        <% else %>
+            <h2 class="text-lg font-bold mb-2">Pool Information</h2>
+            <p>No pool information available for this park.</p>
     <% end %>
-    <br>
-    <%= link_to 'View All Park Spaces', park_spaces_path, class: "text-blue-500 underline" %>
   </div>
 </div>
 </div>
